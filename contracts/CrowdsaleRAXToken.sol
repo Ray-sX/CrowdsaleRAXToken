@@ -324,9 +324,9 @@ contract CrowdsaleRAXToken is ICrowdsale, Ownable, Pausable, ReentrancyGuard {
             uint256 amountBusdInByVestinManager = (amountBusdIn * _vestingManagers[i].distributionPercentage) / PERCENTAGE_DENOM;
 
             amountRaxOuts[0] = (amountBusdInByVestinManager * 10**18) / price;
-            amountRaxOuts[1] = (amountBusdInByVestinManager * 5000) / PERCENTAGE_DENOM;
-            amountRaxOuts[2] = (amountBusdInByVestinManager * 3000) / PERCENTAGE_DENOM;
-            amountRaxOuts[3] = (amountBusdInByVestinManager * 2000) / PERCENTAGE_DENOM;
+            amountRaxOuts[1] = (amountRaxOuts[0] * 500) / PERCENTAGE_DENOM;
+            amountRaxOuts[2] = (amountRaxOuts[0] * 300) / PERCENTAGE_DENOM;
+            amountRaxOuts[3] = (amountRaxOuts[0] * 200) / PERCENTAGE_DENOM;
 
             _execute(_vestingManagers[i].vestingManager, msg.sender, amountRaxOuts);
         }
